@@ -8,9 +8,6 @@ import sys
 import os
 import pathlib
 from PIL import Image
-import json
-
-# Transfer jpg to png
 
 
 def jpg2png(originImg, newImg):
@@ -19,8 +16,6 @@ def jpg2png(originImg, newImg):
         im.save(newImg, 'png')
     except FileNotFoundError as fne:
         print(fne)
-
-# Read RGB
 
 
 def readRGB(originImg):
