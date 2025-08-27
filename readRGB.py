@@ -18,7 +18,24 @@ def jpg2png(originImg, newImg):
         print(fne)
 
 
-def readRGB(img_file_path):
+def readRGB(img_file_path: str):
+    """
+    Description
+    ---
+    Read RGB data from an image and write the total R, G, B values to a CSV file
+
+    Parameters
+    ---
+    img_file_path - Path to the image file
+
+    Returns
+    --- 
+    None
+
+    Outputs
+    ---
+    A CSV file named "image_RGB_list.csv" containing the total R, G, B
+    """
     print(f"Processing image: {img_file_path}")
     im = Image.open(img_file_path)
     rgb_whole_img = list(im.getdata())
@@ -32,10 +49,10 @@ def readRGB(img_file_path):
         G_total = G_total+rgb[1]
         B_total = B_total+rgb[2]
     print("RGB information has been successfully extracted.")
-    
+
     csv_file = "image_RGB_list.csv"
     csv_file_exist = pathlib.Path(csv_file).exists()
-    
+
     with open(csv_file, 'a') as f_csv:
         if not csv_file_exist:
             f_csv.write("Image Name,R_total,G_total,B_total\n")
